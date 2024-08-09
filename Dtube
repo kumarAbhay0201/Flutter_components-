@@ -1,0 +1,68 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData.dark(), // Dark theme
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          title: const Center(
+            child: Text(
+              'Dtube',
+              style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400),
+            ),
+          ),
+        ),
+        body: Center(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: 400,
+                height: 65,
+                padding: const EdgeInsets.only(
+                  right: 24, left: 24, top: 8, bottom: 8),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5.0),
+                  border: Border.all(color: Colors.white),
+                ),
+                child: TextField(
+                  textAlign: TextAlign.center,
+                  maxLength: 300,
+                  decoration: InputDecoration(
+                    hintText: 'Paste your video link here',
+                    hintStyle: TextStyle(color: Colors.grey),
+                    border: InputBorder.none,
+                  ),
+                ),
+              ),
+              const SizedBox(width: 20),
+              ElevatedButton(
+                onPressed: () {
+                  // Add your download logic here
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  foregroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0),
+                  ),
+                  minimumSize: Size(100, 65), // Corrected line
+                ),
+                child: const Text('Download'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
